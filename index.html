@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hugo — Diseño y desarrollo web para negocios</title>
+<meta name="description" content="Diseño páginas web modernas y estratégicas para negocios que quieren destacar, transmitir confianza y convertir visitas en oportunidades.">
+<meta name="theme-color" content="#0d0e0f">
+<!-- Sustituye TU-DOMINIO.com por tu dominio real al publicar -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hugo — Diseño y desarrollo web para negocios">
+<meta property="og:description" content="Webs modernas y estratégicas para restaurantes, barberías, tiendas y negocios locales.">
+<meta property="og:locale" content="es_ES">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0e0f;--bg2:#151618;--bg3:#1d1f22;--ink:#f1efe9;--mute:#9a9a95;--line:rgba(241,239,233,.1);--ac:#c8ff3d;--serif:"Instrument Serif",Georgia,serif;--sans:"Inter Tight",system-ui,sans-serif;--r:18px}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.wrap{width:min(1180px,92%);margin:auto}
+section{padding:clamp(70px,11vw,140px) 0;position:relative}
+.eyebrow{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ac);display:flex;gap:.7em;align-items:center;margin-bottom:1.4rem}
+.eyebrow:before{content:"";width:28px;height:1px;background:var(--ac)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.01em}
+h1{font-size:clamp(2.9rem,7.2vw,6.2rem)}
+h2{font-size:clamp(2.2rem,4.8vw,4rem);max-width:17ch}
+h1 em,h2 em{color:var(--ac)}
+.lead{color:var(--mute);font-size:1.12rem;max-width:52ch}
+.btn{display:inline-flex;align-items:center;gap:.6em;padding:.95em 1.5em;border-radius:99px;font-weight:500;font-size:.95rem;border:1px solid var(--line);transition:.3s cubic-bezier(.2,.8,.2,1);cursor:pointer;background:none;color:var(--ink);font-family:inherit}
+.btn:hover{border-color:var(--ink);transform:translateY(-2px)}
+.btn.pri{background:var(--ac);color:#0d0e0f;border-color:var(--ac)}
+.btn.pri:hover{box-shadow:0 10px 40px -8px rgba(200,255,61,.45)}
+.btn svg{width:14px;transition:.3s}.btn:hover svg{transform:translateX(4px)}
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:50;transition:.4s}
+header.s{background:rgba(13,14,15,.78);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--serif);font-size:1.7rem;display:flex;align-items:baseline;gap:2px}
+.logo i{width:7px;height:7px;background:var(--ac);border-radius:50%;display:inline-block}
+.menu{display:flex;gap:2.2rem;align-items:center;list-style:none;padding:0}
+.menu a:not(.btn){font-size:.93rem;color:var(--mute);transition:.2s}
+.menu a:not(.btn):hover{color:var(--ink)}
+.menu .btn{padding:.65em 1.2em;font-size:.88rem}
+.burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;position:relative}
+.burger span{position:absolute;left:10px;right:10px;height:1.5px;background:var(--ink);transition:.3s}
+.burger span:nth-child(1){top:16px}.burger span:nth-child(2){top:26px}
+.open .burger span:nth-child(1){top:21px;transform:rotate(45deg)}.open .burger span:nth-child(2){top:21px;transform:rotate(-45deg)}
+@media(max-width:860px){
+.burger{display:block}
+.menu{position:fixed;inset:72px 0 auto;background:var(--bg);flex-direction:column;align-items:flex-start;padding:1.5rem 6% 2.2rem;gap:1.3rem;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:.45s cubic-bezier(.2,.8,.2,1);visibility:hidden}
+.open .menu{transform:none;visibility:visible}
+.menu a:not(.btn){font-family:var(--serif);font-size:2rem;color:var(--ink)}
+}
+/* hero */
+.hero{min-height:100svh;padding:140px 0 70px;display:flex;align-items:center;background:radial-gradient(60% 50% at 80% 30%,rgba(200,255,61,.08),transparent 70%)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:3rem;align-items:center}
+.hero p.lead{margin:1.8rem 0 2.2rem}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap}
+.stage{position:relative;height:min(560px,62vw);min-height:380px}
+.win{position:absolute;background:var(--bg2);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 40px 80px -30px #000,0 0 0 1px rgba(255,255,255,.02);transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.bar{height:26px;display:flex;gap:5px;align-items:center;padding:0 10px;background:var(--bg3)}
+.bar b{width:7px;height:7px;border-radius:50%;background:#3a3c40}
+.w1{width:66%;height:62%;top:0;left:0;transform:rotate(-3deg)}
+.w2{width:60%;height:56%;top:22%;right:0;transform:rotate(2.5deg);z-index:2}
+.w3{width:52%;height:44%;bottom:0;left:12%;transform:rotate(-1deg);z-index:3}
+.stage:hover .w1{transform:rotate(-5deg) translate(-8px,-6px)}
+.stage:hover .w2{transform:rotate(4deg) translate(8px,0)}
+.stage:hover .w3{transform:rotate(0) translate(-4px,8px)}
+.mk{padding:14px;display:grid;gap:8px;height:calc(100% - 26px);align-content:start}
+.mk .t{font-family:var(--serif);font-size:1.5rem;line-height:1}
+.mk .l{height:6px;border-radius:3px;background:rgba(255,255,255,.12)}
+.mk .blk{flex:1;border-radius:8px;min-height:52px}
+.float{position:absolute;z-index:4;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:.55em 1em;border-radius:99px;background:var(--ac);color:#0d0e0f;font-weight:600;right:4%;top:6%;animation:fl 5s ease-in-out infinite}
+.float.b{background:var(--bg3);color:var(--ink);border:1px solid var(--line);right:auto;left:0;top:auto;bottom:-4%;animation-delay:-2s}
+@keyframes fl{50%{transform:translateY(-10px)}}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.stage{min-height:340px;height:90vw}}
+/* value bar */
+.vbar{padding:0;border-block:1px solid var(--line);background:var(--bg2)}
+.vbar ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.vbar li{padding:2rem 1.5rem;border-right:1px solid var(--line);font-family:var(--serif);font-size:1.5rem;display:flex;gap:.7rem;align-items:center}
+.vbar li:last-child{border:0}.vbar li:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ac);flex:none}
+@media(max-width:800px){.vbar ul{grid-template-columns:1fr 1fr}.vbar li{font-size:1.15rem;padding:1.4rem 1rem}.vbar li:nth-child(2){border-right:0}.vbar li:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+/* services */
+.head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:3.5rem;flex-wrap:wrap}
+.services{display:grid;grid-template-columns:repeat(12,1fr);gap:1.1rem}
+.sv{grid-column:span 6;background:linear-gradient(160deg,var(--bg2),var(--bg));border:1px solid var(--line);border-radius:var(--r);padding:2rem;position:relative;overflow:hidden;min-height:270px;display:flex;flex-direction:column;transition:.45s cubic-bezier(.2,.8,.2,1)}
+.sv:nth-child(1),.sv:nth-child(4){grid-column:span 7}.sv:nth-child(2),.sv:nth-child(3){grid-column:span 5}
+.sv:nth-child(2){grid-column:span 5}.sv:nth-child(3){grid-column:span 5}.sv:nth-child(4){grid-column:span 7}
+.sv:hover{transform:translateY(-6px);border-color:rgba(200,255,61,.45);box-shadow:0 30px 60px -30px rgba(200,255,61,.25)}
+.sv svg.ic{width:42px;height:42px;stroke:var(--ac);fill:none;stroke-width:1.5;margin-bottom:auto}
+.sv h3{font-size:1.9rem;margin:2.2rem 0 .6rem;font-family:var(--sans);font-weight:600;font-size:1rem;letter-spacing:.12em}
+.sv p{color:var(--mute);max-width:36ch}
+.sv .g{position:absolute;right:-20px;top:-20px;width:150px;height:150px;border-radius:50%;border:1px solid var(--line);transition:.6s}
+.sv .g:after{content:"";position:absolute;inset:28px;border-radius:50%;border:1px dashed var(--line)}
+.sv:hover .g{transform:scale(1.5) rotate(40deg);border-color:rgba(200,255,61,.4)}
+@media(max-width:800px){.sv,.sv:nth-child(n){grid-column:span 12}}
+/* portfolio */
+#proyectos{background:var(--bg2)}
+.proj{display:grid;grid-template-columns:1.3fr .8fr;gap:clamp(2rem,5vw,5rem);align-items:center;margin-top:4rem}
+.proj:nth-child(even){direction:rtl}.proj:nth-child(even)>*{direction:ltr}
+.devs{position:relative;padding:0 0 8% 0}
+.desk{border-radius:12px 12px 0 0;border:1px solid var(--line);background:var(--bg3);overflow:hidden;box-shadow:0 50px 90px -40px #000;transition:.6s cubic-bezier(.2,.8,.2,1)}
+.desk .shot{aspect-ratio:16/10;position:relative;background:#111}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.base{height:12px;background:linear-gradient(#2a2c30,#1a1b1e);border-radius:0 0 14px 14px;width:108%;margin-left:-4%}
+.phone{position:absolute;right:-3%;bottom:0;width:23%;aspect-ratio:9/19;border:5px solid #2a2c30;border-radius:22px;overflow:hidden;background:#111;box-shadow:0 30px 60px -20px #000;transition:.6s cubic-bezier(.2,.8,.2,1)}
+.devs:hover .desk{transform:translateY(-6px)}.devs:hover .phone{transform:translateY(-14px) rotate(2deg)}
+.ph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:8%;background:linear-gradient(160deg,#2b2417,#0e0e0e);gap:6px}
+.ph .t{font-family:var(--serif);font-size:clamp(1rem,2.6vw,2rem);line-height:1}.ph small{color:#b99b5e;letter-spacing:.14em;text-transform:uppercase;font-size:.6rem}
+.phone .ph .t{font-size:clamp(.8rem,1.5vw,1.2rem)}
+.tag{display:inline-block;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);padding:.3em .9em;border-radius:99px;color:var(--mute);margin:0 .4rem .4rem 0}
+.proj h3{font-size:clamp(2.2rem,4vw,3.4rem);margin:1rem 0}
+.proj p{color:var(--mute);margin-bottom:1.8rem}
+.soon{margin-top:4rem;border:1px dashed var(--line);border-radius:var(--r);padding:2.2rem;text-align:center;color:var(--mute);font-family:var(--serif);font-size:1.5rem}
+@media(max-width:860px){.proj{grid-template-columns:1fr}.proj:nth-child(even){direction:ltr}}
+/* diff */
+.diff{display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem}
+.diff ol{list-style:none;padding:0}
+.diff li{display:grid;grid-template-columns:70px 1fr;gap:1rem;padding:2rem 0;border-top:1px solid var(--line);transition:.3s}
+.diff li:last-child{border-bottom:1px solid var(--line)}
+.diff li:hover{padding-left:14px}.diff li:hover .n{color:var(--ac)}
+.n{font-family:var(--serif);font-size:2.6rem;color:#3b3d41;line-height:1;transition:.3s}
+.diff h3{font-family:var(--sans);font-weight:600;font-size:.9rem;letter-spacing:.14em;margin-bottom:.4rem}
+.diff p{color:var(--mute)}
+.sticky{position:sticky;top:110px;align-self:start}
+@media(max-width:860px){.diff{grid-template-columns:1fr;gap:2rem}.sticky{position:static}}
+/* about */
+#sobre{background:var(--bg2)}
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:4rem;align-items:start}
+.about .big{font-family:var(--serif);font-size:clamp(5rem,16vw,12rem);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(241,239,233,.25)}
+.about .txt p{color:var(--mute);margin-bottom:1.2rem;max-width:58ch}
+.about .txt p:first-child{color:var(--ink);font-family:var(--serif);font-size:1.9rem;line-height:1.2}
+.about .txt p:last-child{color:var(--ac);font-family:var(--serif);font-size:1.5rem;margin:1.8rem 0 0}
+@media(max-width:860px){.about{grid-template-columns:1fr;gap:1rem}}
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:4rem;position:relative}
+.steps:before{content:"";position:absolute;left:0;right:0;top:19px;height:1px;background:var(--line)}
+.st{position:relative;padding-top:3.4rem}
+.st:before{content:"";position:absolute;top:12px;left:0;width:15px;height:15px;border-radius:50%;background:var(--bg);border:2px solid var(--ac);transition:.3s}
+.st:hover:before{background:var(--ac);box-shadow:0 0 0 8px rgba(200,255,61,.12)}
+.st .n{display:block;margin-bottom:.8rem}
+.st h3{font-family:var(--sans);font-weight:600;font-size:.9rem;letter-spacing:.14em;margin-bottom:.5rem}
+.st p{color:var(--mute);font-size:.98rem}
+@media(max-width:860px){.steps{grid-template-columns:1fr;gap:0}.steps:before{left:7px;right:auto;width:1px;height:100%;top:0}.st{padding:0 0 2.4rem 2.6rem}.st:before{top:6px}}
+/* trust */
+.trust{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.trust ul{list-style:none;padding:0;display:grid;gap:.8rem}
+.trust li{padding:1.2rem 1.4rem;border:1px solid var(--line);border-radius:14px;background:var(--bg2);font-size:1.05rem;display:flex;justify-content:space-between;gap:1rem;transition:.3s}
+.trust li:hover{border-color:rgba(200,255,61,.4);transform:translateX(6px)}
+.trust li span{color:var(--ac)}
+.quote{margin-top:2.2rem;padding:1.8rem;border:1px dashed var(--line);border-radius:var(--r);color:var(--mute);font-family:var(--serif);font-size:1.35rem}
+.quote small{display:block;font-family:var(--sans);font-size:.8rem;margin-top:.6rem}
+@media(max-width:860px){.trust{grid-template-columns:1fr;gap:2rem}}
+/* faq */
+.faq{max-width:860px;margin-top:3rem}
+.q{border-top:1px solid var(--line)}.q:last-child{border-bottom:1px solid var(--line)}
+.q button{all:unset;box-sizing:border-box;width:100%;padding:1.5rem 0;cursor:pointer;display:flex;justify-content:space-between;gap:1rem;font-family:var(--serif);font-size:1.55rem;line-height:1.2}
+.q button:focus-visible{outline:2px solid var(--ac)}
+.q button i{width:26px;height:26px;flex:none;position:relative;border:1px solid var(--line);border-radius:50%;transition:.3s}
+.q button i:before,.q button i:after{content:"";position:absolute;left:7px;right:7px;top:12px;height:1px;background:var(--ink);transition:.3s}
+.q button i:after{transform:rotate(90deg)}
+.q.on button i{background:var(--ac);border-color:var(--ac)}.q.on button i:before,.q.on button i:after{background:#000}.q.on button i:after{transform:rotate(0)}
+.a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s}.q.on .a{grid-template-rows:1fr}
+.a div{overflow:hidden}.a p{color:var(--mute);padding-bottom:1.6rem;max-width:62ch}
+/* contact */
+#contacto{background:linear-gradient(180deg,var(--bg),var(--bg2))}
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem}
+.contact .lead{margin:1.5rem 0 2rem}
+.dir{list-style:none;padding:0;display:grid;gap:.4rem;margin:2rem 0}
+.dir a{color:var(--ink);border-bottom:1px solid var(--line);transition:.2s}.dir a:hover{border-color:var(--ac);color:var(--ac)}
+form{background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:clamp(1.4rem,3vw,2.4rem);display:grid;gap:1.1rem;grid-template-columns:1fr 1fr;box-shadow:0 40px 80px -50px #000}
+.f{display:grid;gap:.4rem}.f.full{grid-column:1/-1}
+label{font-size:.82rem;color:var(--mute);letter-spacing:.04em}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:.85em 1em;width:100%;transition:.2s}
+textarea{min-height:130px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--ac);box-shadow:0 0 0 3px rgba(200,255,61,.12)}
+.err{font-size:.8rem;color:#ff8a7a;min-height:1em}
+.f.bad input,.f.bad select,.f.bad textarea{border-color:#ff8a7a}
+.status{grid-column:1/-1;font-size:.92rem;color:var(--ac);min-height:1.2em}
+.hp{position:absolute;left:-9999px}
+@media(max-width:860px){.contact{grid-template-columns:1fr;gap:2.5rem}form{grid-template-columns:1fr}}
+/* footer */
+footer{border-top:1px solid var(--line);padding:4rem 0 2rem}
+.fg{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem}
+footer h4{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:500;margin-bottom:1rem}
+footer ul{list-style:none;padding:0;display:grid;gap:.5rem;font-size:.95rem}
+footer ul a:hover{color:var(--ac)}
+footer p{color:var(--mute);max-width:32ch;margin-top:1rem;font-size:.95rem}
+.fb{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--line);color:var(--mute);font-size:.85rem}
+.fb button{background:none;border:0;color:inherit;font:inherit;cursor:pointer;text-decoration:underline;padding:0;margin-left:1rem}
+@media(max-width:800px){.fg{grid-template-columns:1fr 1fr}}
+dialog{background:var(--bg2);color:var(--ink);border:1px solid var(--line);border-radius:18px;padding:2rem;max-width:560px;width:92%}
+dialog::backdrop{background:rgba(0,0,0,.7)}dialog p{color:var(--mute);margin:1rem 0 1.5rem}
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header id="hd"><div class="wrap nav">
+<a href="#inicio" class="logo" aria-label="Hugo, inicio">hugo<i></i>studio</a>
+<button class="burger" id="bg" aria-label="Abrir menú" aria-expanded="false" aria-controls="mn"><span></span><span></span></button>
+<ul class="menu" id="mn">
+<li><a href="#inicio">Inicio</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#proyectos">Proyectos</a></li><li><a href="#sobre">Sobre mí</a></li><li><a href="#contacto">Contacto</a></li>
+<li><a class="btn pri" href="#contacto">Hablemos de tu proyecto</a></li>
+</ul></div></header>
+
+<main>
+<section class="hero" id="inicio"><div class="wrap">
+<div>
+<p class="eyebrow rv">Diseño y desarrollo web</p>
+<h1 class="rv">No necesitas otra web. Necesitas una web que <em>marque la diferencia</em>.</h1>
+<p class="lead rv">Diseño páginas web modernas y estratégicas para negocios que quieren destacar, transmitir confianza y convertir visitas en oportunidades.</p>
+<div class="cta rv"><a class="btn pri" href="#proyectos">Ver proyectos <svg viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 5h14M10 1l4 4-4 4"/></svg></a><a class="btn" href="#contacto">Cuéntame tu idea</a></div>
+</div>
+<div class="stage rv" aria-hidden="true">
+<div class="win w1"><div class="bar"><b></b><b></b><b></b></div><div class="mk" style="background:#1a1410"><span class="t" style="color:#e8c98a">Brasa &amp; Sal</span><span class="l" style="width:70%"></span><span class="l" style="width:45%"></span><div class="blk" style="background:linear-gradient(135deg,#7a4a22,#2a1a0c)"></div></div></div>
+<div class="win w2"><div class="bar"><b></b><b></b><b></b></div><div class="mk" style="background:#0f1411"><span class="t" style="color:var(--ac)">Atelier Corte</span><span class="l" style="width:60%"></span><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div class="blk" style="background:#1d2a21;height:70px"></div><div class="blk" style="background:#26382b;height:70px"></div></div><span class="l" style="width:80%"></span></div></div>
+<div class="win w3"><div class="bar"><b></b><b></b><b></b></div><div class="mk" style="background:#ece8df;color:#111"><span class="t">Café Norte</span><span class="l" style="width:75%;background:#0002"></span><div class="blk" style="background:#d6cdbb"></div></div></div>
+<span class="float">Diseño a medida</span><span class="float b">Responsive</span>
+</div></div></section>
+
+<section class="vbar" aria-label="Valores"><div class="wrap"><ul><li>Diseño personalizado</li><li>Adaptado a móviles</li><li>Comunicación directa</li><li>Atención al detalle</li></ul></div></section>
+
+<section id="servicios"><div class="wrap">
+<div class="head"><div><p class="eyebrow rv">Servicios</p><h2 class="rv" style="max-width:24ch">Todo lo que necesitas para tener una presencia digital a la altura de tu negocio</h2></div></div>
+<div class="services">
+<article class="sv rv"><i class="g"></i><svg class="ic" viewBox="0 0 42 42"><rect x="4" y="7" width="34" height="26" rx="3"/><path d="M4 14h34M11 38h20M21 33v5"/></svg><h3>DISEÑO WEB</h3><p>Páginas web personalizadas, modernas y adaptadas a la identidad de cada negocio.</p></article>
+<article class="sv rv"><i class="g"></i><svg class="ic" viewBox="0 0 42 42"><path d="M8 21a13 13 0 0 1 23-8M34 21a13 13 0 0 1-23 8"/><path d="M31 5v8h-8M11 37v-8h8"/></svg><h3>REDISEÑO WEB</h3><p>Transformamos páginas antiguas en experiencias digitales actuales y profesionales.</p></article>
+<article class="sv rv"><i class="g"></i><svg class="ic" viewBox="0 0 42 42"><path d="M5 16 8 6h26l3 10M5 16h32v4a5 5 0 0 1-10 0 5 5 0 0 1-11 0 5 5 0 0 1-11 0zM8 25v11h26V25"/></svg><h3>WEBS PARA NEGOCIOS</h3><p>Soluciones específicas para restaurantes, peluquerías, cafeterías y comercios.</p></article>
+<article class="sv rv"><i class="g"></i><svg class="ic" viewBox="0 0 42 42"><path d="M21 4v22M12 17l9 9 9-9M6 33h30v5H6z"/></svg><h3>LANDING PAGES</h3><p>Páginas enfocadas en presentar servicios, promocionar productos y conseguir contactos.</p></article>
+</div></div></section>
+
+<section id="proyectos"><div class="wrap">
+<p class="eyebrow rv">Portfolio</p><h2 class="rv">Diseños que hablan por sí solos</h2>
+<div id="pf"></div>
+<div class="soon rv">Próximos proyectos en camino</div>
+</div></section>
+
+<section><div class="wrap diff">
+<div class="sticky"><p class="eyebrow rv">Diferenciación</p><h2 class="rv">Una web no debería ser simplemente bonita</h2></div>
+<ol>
+<li class="rv"><span class="n">01</span><div><h3>PRIMERA IMPRESIÓN</h3><p>Tu web es muchas veces el primer contacto con un posible cliente.</p></div></li>
+<li class="rv"><span class="n">02</span><div><h3>CONFIANZA</h3><p>Una presentación profesional ayuda a transmitir seriedad.</p></div></li>
+<li class="rv"><span class="n">03</span><div><h3>ACCESIBILIDAD</h3><p>Tus clientes pueden encontrar información sobre tu negocio en cualquier momento.</p></div></li>
+<li class="rv"><span class="n">04</span><div><h3>VISIBILIDAD</h3><p>Una buena base SEO ayuda a que tu negocio pueda aparecer en buscadores.</p></div></li>
+</ol></div></section>
+
+<section id="sobre"><div class="wrap about">
+<div class="big rv" aria-hidden="true">Hugo</div>
+<div><p class="eyebrow rv">Sobre mí</p><h2 class="rv" style="margin-bottom:2rem">Detrás de cada proyecto hay una persona</h2>
+<div class="txt rv"><p>Soy Hugo y me dedico al diseño y desarrollo de páginas web.</p>
+<p>Me gusta combinar diseño, tecnología y creatividad para crear páginas que no solo tengan buen aspecto, sino que también sean útiles para los negocios.</p>
+<p>Trabajo de forma cercana con cada proyecto, escuchando lo que necesita cada cliente y buscando la mejor manera de llevarlo a la pantalla.</p>
+<p>Cada negocio es diferente. Su web también debería serlo.</p></div></div>
+</div></section>
+
+<section><div class="wrap">
+<p class="eyebrow rv">Proceso</p><h2 class="rv">Cómo trabajo</h2>
+<div class="steps">
+<div class="st rv"><span class="n">01</span><h3>PRIMER CONTACTO</h3><p>Me cuentas qué necesitas y qué objetivos tienes.</p></div>
+<div class="st rv"><span class="n">02</span><h3>PROPUESTA</h3><p>Analizo tu idea y preparo una propuesta adaptada a tu negocio.</p></div>
+<div class="st rv"><span class="n">03</span><h3>DISEÑO Y DESARROLLO</h3><p>Construyo tu página cuidando el diseño, los detalles y la experiencia de usuario.</p></div>
+<div class="st rv"><span class="n">04</span><h3>ENTREGA</h3><p>Revisamos el resultado y dejamos todo preparado para publicar la web.</p></div>
+</div></div></section>
+
+<section style="background:var(--bg2)"><div class="wrap trust">
+<div><p class="eyebrow rv">Confianza</p><h2 class="rv">Qué puedes esperar de trabajar conmigo</h2>
+<!-- TESTIMONIOS: cuando tengas opiniones reales, sustituye este bloque .quote por tus testimonios auténticos -->
+<div class="quote rv">Aquí aparecerán las opiniones de clientes reales.<small>Hasta entonces, esto es lo que me comprometo a ofrecerte.</small></div></div>
+<ul class="rv">
+<li>Comunicación directa <span>01</span></li><li>Diseño adaptado a cada negocio <span>02</span></li><li>Transparencia durante el proceso <span>03</span></li><li>Atención a los detalles <span>04</span></li><li>Acompañamiento durante el proyecto <span>05</span></li>
+</ul></div></section>
+
+<section><div class="wrap">
+<p class="eyebrow rv">FAQ</p><h2 class="rv">Preguntas frecuentes</h2>
+<div class="faq" id="fq"></div>
+</div></section>
+
+<section id="contacto"><div class="wrap contact">
+<div><p class="eyebrow rv">Contacto</p><h2 class="rv" style="max-width:14ch">Tu próximo proyecto empieza con una conversación</h2>
+<p class="lead rv">Cuéntame qué tienes en mente. Estaré encantado de escuchar tu idea y ayudarte a convertirla en una página web.</p>
+<ul class="dir rv"><li>Teléfono: <a href="tel:+34644690585">644 690 585</a></li><li>Correo: <a href="mailto:hugonegocios1004@gmail.com">hugonegocios1004@gmail.com</a></li></ul>
+<div class="cta rv"><a class="btn pri" href="https://wa.me/34644690585" target="_blank" rel="noopener">WhatsApp</a><a class="btn" href="mailto:hugonegocios1004@gmail.com">Enviar correo</a></div></div>
+<form id="cf" class="rv" novalidate>
+<div class="f"><label for="nombre">Nombre</label><input id="nombre" name="nombre" autocomplete="name" required><span class="err"></span></div>
+<div class="f"><label for="email">Correo electrónico</label><input id="email" name="email" type="email" autocomplete="email" required><span class="err"></span></div>
+<div class="f"><label for="negocio">Nombre del negocio</label><input id="negocio" name="negocio" required><span class="err"></span></div>
+<div class="f"><label for="tipo">Tipo de proyecto</label><select id="tipo" name="tipo" required><option value="">Selecciona…</option><option>Web nueva</option><option>Rediseño de web existente</option><option>Web corporativa</option><option>Landing page</option><option>Web para negocio local</option><option>Optimización para móviles</option><option>Otro</option></select><span class="err"></span></div>
+<div class="f full"><label for="presupuesto">Presupuesto aproximado (opcional)</label><input id="presupuesto" name="presupuesto" placeholder="Ej.: 500–800 €"><span class="err"></span></div>
+<div class="f full"><label for="mensaje">Cuéntame qué necesitas</label><textarea id="mensaje" name="mensaje" required></textarea><span class="err"></span></div>
+<input class="hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+<div class="f full"><button class="btn pri" type="submit" style="justify-content:center">Enviar mensaje</button></div>
+<p class="status" id="st" role="status"></p>
+</form></div></section>
+</main>
+
+<footer><div class="wrap">
+<div class="fg">
+<div><a href="#inicio" class="logo">hugo<i></i>studio</a><p>Diseño y desarrollo de páginas web para negocios que quieren destacar.</p></div>
+<div><h4>Navegación</h4><ul><li><a href="#inicio">Inicio</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#proyectos">Proyectos</a></li><li><a href="#sobre">Sobre mí</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
+<div><h4>Servicios</h4><ul><li><a href="#servicios">Diseño web</a></li><li><a href="#servicios">Rediseño web</a></li><li><a href="#servicios">Webs para negocios</a></li><li><a href="#servicios">Landing pages</a></li></ul></div>
+<div><h4>Contacto</h4><ul><li><a href="tel:+34644690585">644 690 585</a></li><li><a href="mailto:hugonegocios1004@gmail.com">hugonegocios1004@gmail.com</a></li><li id="ig" hidden><a id="igl" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+</div>
+<div class="fb"><span>© <span id="yr"></span> Hugo. Todos los derechos reservados.</span><span><button data-d="d1">Aviso legal</button><button data-d="d2">Política de privacidad</button></span></div>
+</div></footer>
+
+<dialog id="d1"><h3>Aviso legal</h3><p>Completa este texto con tus datos como titular (nombre o razón social, NIF, domicilio y correo de contacto) conforme a la LSSI-CE antes de publicar la web.</p><form method="dialog" style="display:block;padding:0;border:0;background:none;box-shadow:none"><button class="btn">Cerrar</button></form></dialog>
+<dialog id="d2"><h3>Política de privacidad</h3><p>Completa este texto indicando el responsable, la finalidad del formulario de contacto, la base legal, el plazo de conservación y cómo ejercer los derechos RGPD, antes de publicar la web.</p><form method="dialog" style="display:block;padding:0;border:0;background:none;box-shadow:none"><button class="btn">Cerrar</button></form></dialog>
+
+<script>
+	/* ===== CONFIGURACIÓN ===== */
+	const FORM_ENDPOINT="https://formspree.io/f/mbgoozkl"; // Pega aquí la URL de Formspree, Getform, etc. Si está vacío, el formulario abre el correo con los datos rellenados.
+	const INSTAGRAM_URL="https://www.instagram.com/hugoruizd__"; // Pega tu enlace de Instagram para mostrarlo en el pie.
+	const EMAIL="hugonegocios1004@gmail.com";
+	/* Para añadir un proyecto: copia un objeto de esta lista. Imágenes en /img/ */
+	const PROJECTS=[{
+	name:"J. Herrero Barber",tags:["Barbería","Web responsive"],
+	url:"https://jherrerobarber.netlify.app",
+	desc:"Diseño de una web para una barbería, con una identidad visual cuidada, presentación de servicios y una experiencia adaptada a dispositivos móviles.",
+	desktop:"img/jherrero-escritorio.png",mobile:"img/jherrero-movil.png"
+	}];
+	/* ===== PORTFOLIO ===== */
+	const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ph=(n,c)=>`<div class="ph"><small>Vista previa</small><span class="t">${esc(n)}</span></div>`;
+document.getElementById("pf").innerHTML=PROJECTS.map(p=>`
+<article class="proj rv"><div class="devs"><div class="desk"><div class="bar"><b></b><b></b><b></b></div><div class="shot">${ph(p.name)}<img src="${p.desktop}" alt="Captura de escritorio de ${esc(p.name)}" loading="lazy" onerror="this.remove()"></div></div><div class="base"></div>
+<div class="phone"><div class="shot" style="height:100%">${ph(p.name)}<img src="${p.mobile}" alt="Captura móvil de ${esc(p.name)}" loading="lazy" onerror="this.remove()" style="height:100%"></div></div></div>
+<div>${p.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}<h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p>
+<a class="btn pri" href="${p.url}" target="_blank" rel="noopener">Visitar proyecto <svg viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 5h14M10 1l4 4-4 4"/></svg></a></div></article>`).join("");
+/* ===== FAQ ===== */
+const FAQ=[
+["¿Cuánto cuesta crear una página web?","Depende del tipo de proyecto, el número de secciones y las funcionalidades que necesites. Cuéntame tu idea y te preparo una propuesta con un precio claro, sin compromiso."],
+["¿Cuánto tiempo tarda el proyecto?","Varía según el alcance. Una landing page es más rápida que una web corporativa. En la propuesta te indicaré un plazo estimado realista para tu caso."],
+["¿La web estará adaptada a móviles?","Sí. Cada web se diseña pensando en móvil, tablet y ordenador, y la reviso en distintos tamaños de pantalla."],
+["¿Puedo solicitar cambios?","Sí. Durante el diseño revisamos juntos el resultado y ajustamos lo necesario. Los cambios posteriores a la entrega los acordamos en cada proyecto."],
+["¿Podré actualizar la web?","Depende de cómo se plantee el proyecto. Lo hablamos al principio para que la web se adapte a lo que necesitas poder modificar tú mismo."],
+["¿Incluye dominio y alojamiento?","Lo definimos en la propuesta según tu caso. Te explico las opciones para que sepas siempre qué incluye el proyecto y qué no."],
+["¿Trabajas con negocios de cualquier sector?","Trabajo sobre todo con negocios locales, profesionales y pequeñas empresas: restaurantes, cafeterías, peluquerías, tiendas… Si tienes otro sector, cuéntamelo y lo valoramos."]];
+document.getElementById("fq").innerHTML=FAQ.map((f,i)=>`<div class="q"><h3 style="all:unset;display:block"><button aria-expanded="false" aria-controls="a${i}">${f[0]}<i></i></button></h3><div class="a" id="a${i}" role="region"><div><p>${f[1]}</p></div></div></div>`).join("");
+document.querySelectorAll(".q button").forEach(b=>b.onclick=()=>{const q=b.closest(".q"),o=q.classList.toggle("on");b.setAttribute("aria-expanded",o)});
+/* ===== UI ===== */
+const hd=document.getElementById("hd"),bg=document.getElementById("bg");
+addEventListener("scroll",()=>hd.classList.toggle("s",scrollY>20),{passive:true});
+bg.onclick=()=>{const o=hd.classList.toggle("open");bg.setAttribute("aria-expanded",o);bg.setAttribute("aria-label",o?"Cerrar menú":"Abrir menú")};
+document.querySelectorAll(".menu a").forEach(a=>a.onclick=()=>{hd.classList.remove("open");bg.setAttribute("aria-expanded","false")});
+document.getElementById("yr").textContent=new Date().getFullYear();
+if(INSTAGRAM_URL){document.getElementById("igl").href=INSTAGRAM_URL;document.getElementById("ig").hidden=false}
+document.querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>document.getElementById(b.dataset.d).showModal());
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".rv").forEach((e,i)=>{e.style.transitionDelay=(i%4)*70+"ms";io.observe(e)});
+/* ===== FORMULARIO ===== */
+const cf=document.getElementById("cf"),st=document.getElementById("st");
+const rules={nombre:v=>v.trim().length>=2||"Escribe tu nombre.",email:v=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)||"Introduce un correo válido.",negocio:v=>v.trim()?true:"Indica el nombre de tu negocio.",tipo:v=>v?true:"Selecciona un tipo de proyecto.",mensaje:v=>v.trim().length>=10||"Cuéntame un poco más (mínimo 10 caracteres)."};
+function check(el){const r=rules[el.name];if(!r)return true;const m=r(el.value),f=el.closest(".f");f.classList.toggle("bad",m!==true);f.querySelector(".err").textContent=m===true?"":m;el.setAttribute("aria-invalid",m!==true);return m===true}
+cf.querySelectorAll("input,select,textarea").forEach(el=>el.addEventListener("blur",()=>check(el)));
+cf.addEventListener("submit",async e=>{
+ e.preventDefault();st.textContent="";
+ const bad=[...cf.elements].filter(el=>el.name&&el.name!=="_gotcha").map(check).includes(false);
+ if(bad){cf.querySelector(".bad input,.bad select,.bad textarea")?.focus();return}
+ if(cf.elements._gotcha.value)return;
+ const d=Object.fromEntries(new FormData(cf));
+ if(FORM_ENDPOINT){
+  try{const r=await fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(d)});
+   if(!r.ok)throw 0;cf.reset();st.textContent="Mensaje enviado. Te responderé lo antes posible."}
+  catch{st.style.color="#ff8a7a";st.textContent="No se ha podido enviar. Escríbeme por WhatsApp o por correo."}
+ }else{
+  const body=`Nombre: ${d.nombre}\nCorreo: ${d.email}\nNegocio: ${d.negocio}\nTipo de proyecto: ${d.tipo}\nPresupuesto: ${d.presupuesto||"—"}\n\n${d.mensaje}`;
+  location.href=`mailto:${EMAIL}?subject=${encodeURIComponent("Nuevo proyecto: "+d.negocio)}&body=${encodeURIComponent(body)}`;
+  st.textContent="Se ha abierto tu programa de correo con el mensaje preparado."
+ }
+});
+</script>
+</body>
+</html>
